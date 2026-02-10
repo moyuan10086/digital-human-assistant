@@ -1,6 +1,28 @@
 # 数字人助手 (Digital Human Assistant)
 
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-teal.svg)](https://fastapi.tiangolo.com/)
+
+**AI 数字人对话系统 | 实时语音交互 | 会话管理**
+
+</div>
+
+---
+
 这是一个基于 **Wav2Lip**、**Edge-TTS** (微软语音) 和 **Volcengine** (火山引擎) 的数字人对话系统。包含 Vue3 前端和 FastAPI 后端，支持生成带有透明背景的数字人视频，并实现实时语音对话交互。
+
+## 🌟 项目特色
+
+- 🎭 **透明背景数字人** - 完美融入任何 UI 界面
+- 🎤 **多模态对话** - 支持文字、语音识别、实时语音三种交互方式
+- 💬 **智能会话管理** - 类似 ChatGPT 的对话历史管理
+- 🎵 **多音色支持** - Edge TTS + 火山引擎精品音色
+- ⚡ **实时响应** - WebSocket 全双工通信
+- 🔒 **安全可靠** - 密钥配置分离，开源安全
 
 ## 📝 更新日志
 

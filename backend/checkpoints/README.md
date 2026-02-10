@@ -8,17 +8,21 @@
 
 ### 必需文件
 
-1. **wav2lip_gan.pth** (416MB)
-   - 下载地址: https://github.com/Rudrabha/Wav2Lip/releases
+1. **wav2lip_gan.pth** (436MB)
+   - Hugging Face: https://huggingface.co/Nekochu/Wav2Lip/resolve/main/wav2lip_gan.pth
+   - 备用地址: https://huggingface.co/numz/wav2lip_studio/resolve/main/checkpoints/wav2lip_gan.pth
+   - GitHub (Google Drive): https://github.com/Rudrabha/Wav2Lip (查看 README 中的 Google Drive 链接)
 
 ### 可选文件
 
-2. **SadTalker_V0.0.2_256.safetensors** (692MB)
+2. **SadTalker_V0.0.2_256.safetensors** (725MB)
    - 用于更高质量的唇形同步
-   - 下载地址: https://github.com/OpenTalker/SadTalker
+   - Hugging Face: https://huggingface.co/TonyD2046/sadtalker-01/resolve/main/SadTalker_V0.0.2_256.safetensors
+   - GitHub: https://github.com/OpenTalker/SadTalker
 
 3. **wav2lipv2.pth** (205MB)
    - Wav2Lip v2 版本模型
+   - 请从 Wav2Lip 相关仓库获取
 
 ## 文件结构
 
