@@ -41,6 +41,11 @@ messages.json
 chat_history.json
 history.json
 
+# Content filter
+filter_config.json
+content_filter.log
+backend/Sensitive-lexicon/
+
 # Large files (except demo video)
 *.mp4
 !演示.mp4
@@ -58,7 +63,7 @@ backend/checkpoints/*.ckpt
 # FFmpeg binaries
 backend/ffmpeg/
 
-realtime/
+realtime_dialog/
 
 
 # Virtual environment
