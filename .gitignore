@@ -58,6 +58,9 @@ backend/checkpoints/*.ckpt
 # FFmpeg binaries
 backend/ffmpeg/
 
+realtime/
+
+
 # Virtual environment
 .venv/
 venv/
