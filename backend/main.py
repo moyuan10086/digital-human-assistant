@@ -804,6 +804,16 @@ import volc_asr as volc_module
 from llm import chat_with_ark
 from pydantic import BaseModel
 
+# Import content filter
+try:
+    from backend.content_filter import ContentFilter
+except ImportError:
+    try:
+        from content_filter import ContentFilter
+    except ImportError:
+        ContentFilter = None
+        print("警告: 内容过滤器不可用")
+
 try:
     from backend.volc_realtime import RealtimeDialogClient
 except ImportError:
@@ -811,6 +821,15 @@ except ImportError:
         from volc_realtime import RealtimeDialogClient
     except ImportError:
         pass
+
+# Initialize content filter
+content_filter = None
+if ContentFilter:
+    try:
+        content_filter = ContentFilter(use_lexicon=True)
+        print("✓ 内容过滤器已启用")
+    except Exception as e:
+        print(f"内容过滤器初始化失败: {e}")
 
 class ChatRequest(BaseModel):
     text: str
@@ -950,6 +969,14 @@ async def websocket_phone(websocket: WebSocket):
                                 if result.get('text') and not result.get('is_interim'):
                                     user_text = result['text']
                                     if user_text != current_user_text:
+                                        # Input filtering
+                                        if content_filter:
+                                            passed, _, keywords = content_filter.filter_input(user_text)
+                                            if not passed:
+                                                print(f"[Phone] Input blocked: {keywords[:3]}")
+                                                content_filter.log_violation(user_text, keywords, "phone_input")
+                                                continue
+
                                         current_user_text = user_text
                                         add_message_to_conversation(conversation_id, "user", current_user_text)
                                         print(f"[Phone] Saved user message: {current_user_text}")
@@ -961,6 +988,14 @@ async def websocket_phone(websocket: WebSocket):
 
                         # Save AI response when no_content flag is set (end of response)
                         if payload_msg.get('no_content') and current_ai_text:
+                            # Output filtering
+                            if content_filter:
+                                passed, filtered_text = content_filter.filter_output(current_ai_text)
+                                if not passed:
+                                    print(f"[Phone] Output blocked")
+                                    content_filter.log_violation(current_ai_text, [], "phone_output")
+                                    current_ai_text = filtered_text
+
                             add_message_to_conversation(conversation_id, "assistant", current_ai_text)
                             print(f"[Phone] Saved AI message: {current_ai_text[:50]}...")
                             current_ai_text = ""
