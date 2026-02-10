@@ -49,6 +49,14 @@ history.json
 *.zip
 *.tar.gz
 
+# Model files (too large for GitHub)
+backend/checkpoints/*.pth
+backend/checkpoints/*.safetensors
+backend/checkpoints/*.ckpt
+
+# FFmpeg binaries
+backend/ffmpeg/
+
 # Virtual environment
 .venv/
 venv/
