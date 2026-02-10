@@ -10,7 +10,6 @@
 
 1. **wav2lip_gan.pth** (416MB)
    - 下载地址: https://github.com/Rudrabha/Wav2Lip/releases
-   - 或百度网盘: https://pan.baidu.com/s/1xXX (提取码: xxxx)
 
 ### 可选文件
 
