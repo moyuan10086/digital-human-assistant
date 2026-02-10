@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-multipart
+edge-tts
+aiofiles
+requests
+# 以下是 Wav2Lip 需要的依赖，实际部署时需安装 PyTorch 等
+# torch
+# torchvision
+# opencv-python
+# librosa
+# numpy
