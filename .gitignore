@@ -41,8 +41,9 @@ messages.json
 chat_history.json
 history.json
 
-# Large files
+# Large files (except demo video)
 *.mp4
+!演示.mp4
 *.avi
 *.mov
 *.mkv
